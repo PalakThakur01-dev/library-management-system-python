@@ -1,0 +1,47 @@
+# Mini Library Management System
+print("PT LIBRARY SYSTEM")
+books = {}
+
+while True:
+    print("1.ADD BOOK")
+    print("2.VIEW BOOK")
+    print("3.SEARCH BOOK")
+    print("4.DELETE BOOK")
+    print("5.EXIT")
+
+    user_choice = int(input("enter your choice(1/2/3/4/5): "))
+
+    if user_choice == 1:
+        while True: 
+            book_name = input("enter your book name: ")
+            book_id = int(input("enter your book id: "))
+
+            books[book_id]=book_name
+
+            more_books = input("Are you added more books in library(yes/no): ")
+
+            if more_books == "no":
+                break
+
+    elif user_choice == 2:
+        for id , name in books.items():
+            print(id ,":", name)
+
+    elif user_choice == 3:
+        user_search = int(input("enter your book id: "))
+        if user_search in books:
+            print(books[user_search])
+        else:
+            print("books not found")
+
+    elif user_choice == 4:
+        del_book = input("enter the book id you want to delete: ")
+        if del_book in books:
+            del books[del_book]
+            print("your book successfully deleted in our library")
+        else:
+            print("book not found")
+
+    elif user_choice == 5:
+        break
+
